@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+  <uml:Model xmi:type="uml:Model" name="DER_SagradoCorazon_Admision">
+    <packagedElement xmi:type="uml:Package" xmi:id="PKG_DER" name="DER_Admision">
+      
+      <!-- TABLA PACIENTES -->
+      <packagedElement xmi:type="uml:Class" xmi:id="TBL_PACIENTES" name="PACIENTES">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_ID" name="id_paciente: INT [PK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_DNI" name="dni: VARCHAR(20) [UK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_NOM" name="nombre: VARCHAR(100)"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_APE" name="apellido: VARCHAR(100)"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_FEC" name="fecha_nacimiento: DATE"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_PAC_TEL" name="telefono: VARCHAR(20)"/>
+      </packagedElement>
+
+      <!-- TABLA EMPLEADOS -->
+      <packagedElement xmi:type="uml:Class" xmi:id="TBL_EMPLEADOS" name="EMPLEADOS">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EMP_ID" name="id_empleado: INT [PK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EMP_LEG" name="legajo: VARCHAR(20) [UK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EMP_NOM" name="nombre: VARCHAR(100)"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EMP_APE" name="apellido: VARCHAR(100)"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EMP_ROL" name="rol: VARCHAR(30)"/>
+      </packagedElement>
+
+      <!-- TABLA EPISODIOS -->
+      <packagedElement xmi:type="uml:Class" xmi:id="TBL_EPISODIOS" name="EPISODIOS">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_ID" name="id_episodio: INT [PK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_PAC" name="id_paciente: INT [FK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_REC" name="id_recepcionista: INT [FK]"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_FEC" name="fecha_hora_ingreso: DATETIME"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_MOT" name="motivo_consulta: TEXT"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="COL_EPI_EST" name="estado: VARCHAR(30)"/>
+      </packagedElement>
+
+      <!-- RELACION: PACIENTES (1) -> EPISODIOS (0..*) -->
+      <packagedElement xmi:type="uml:Association" xmi:id="REL_PAC_EPI" name="FK_Episodio_Paciente">
+        <memberEnd xmi:idref="END_PAC_1"/>
+        <memberEnd xmi:idref="END_EPI_N"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="END_PAC_1" type="TBL_PACIENTES">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_PAC" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="U_PAC" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="END_EPI_N" type="TBL_EPISODIOS">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_EPI" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="U_EPI" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+
+      <!-- RELACION: EMPLEADOS (1) -> EPISODIOS (0..*) -->
+      <packagedElement xmi:type="uml:Association" xmi:id="REL_EMP_EPI" name="FK_Episodio_Recepcionista">
+        <memberEnd xmi:idref="END_EMP_1"/>
+        <memberEnd xmi:idref="END_EPI_N2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="END_EMP_1" type="TBL_EMPLEADOS">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_EMP" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="U_EMP" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="END_EPI_N2" type="TBL_EPISODIOS">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="L_EPI2" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="U_EPI2" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

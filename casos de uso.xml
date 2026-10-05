@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+  <uml:Model xmi:type="uml:Model" xmi:id="EA_MODEL_ROOT" name="EA_Model">
+    <packagedElement xmi:type="uml:Package" xmi:id="PKG_SAGRADO_CORAZON" name="Sistema Sagrado Corazón">
+      
+      <!-- ========================================== -->
+      <!-- PAQUETE 1: ADMISION Y TRIAGE               -->
+      <!-- ========================================== -->
+      <packagedElement xmi:type="uml:Package" xmi:id="PKG_ADM_TRIAGE" name="Gestión de Admisión y Clasificación por Triage">
+        
+        <!-- Actores -->
+        <packagedElement xmi:type="uml:Actor" xmi:id="ACT_RECEPCIONISTA" name="Recepcionista / Administrativo"/>
+        <packagedElement xmi:type="uml:Actor" xmi:id="ACT_ENFERMERO" name="Enfermero/a de Triage"/>
+
+        <!-- Casos de Uso -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU01" name="CU01: Registrar Ingreso de Paciente">
+          <include xmi:type="uml:Include" xmi:id="INC_CU01_CU02" addition="CU02"/>
+        </packagedElement>
+        
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU02" name="CU02: Buscar / Validar Paciente por DNI"/>
+        
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU03" name="CU03: Realizar Triage Clínico">
+          <include xmi:type="uml:Include" xmi:id="INC_CU03_CU04" addition="CU04"/>
+          <include xmi:type="uml:Include" xmi:id="INC_CU03_CU05" addition="CU05"/>
+          <include xmi:type="uml:Include" xmi:id="INC_CU03_CU06" addition="CU06"/>
+        </packagedElement>
+        
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU04" name="CU04: Registrar Signos Vitales"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU05" name="CU05: Asignar Nivel Manchester"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU06" name="CU06: Incorporar a Lista de Espera de Guardia"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU07" name="CU07: Registrar Retiro / Abandono de Guardia"/>
+
+        <!-- Asociaciones de Actores -->
+        <packagedElement xmi:type="uml:Association" xmi:id="ASSOC_REC_CU01" name="">
+          <memberEnd xmi:idref="ACT_RECEPCIONISTA"/>
+          <memberEnd xmi:idref="CU01"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="ASSOC_REC_CU07" name="">
+          <memberEnd xmi:idref="ACT_RECEPCIONISTA"/>
+          <memberEnd xmi:idref="CU07"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="ASSOC_ENF_CU03" name="">
+          <memberEnd xmi:idref="ACT_ENFERMERO"/>
+          <memberEnd xmi:idref="CU03"/>
+        </packagedElement>
+      </packagedElement>
+
+      <!-- ========================================== -->
+      <!-- PAQUETE 2: CONSULTA MEDICA Y CIERRE        -->
+      <!-- ========================================== -->
+      <packagedElement xmi:type="uml:Package" xmi:id="PKG_CONSULTA_MEDICA" name="Gestión de Consulta Médica y Cierre de Episodio">
+        
+        <!-- Actores -->
+        <packagedElement xmi:type="uml:Actor" xmi:id="ACT_MEDICO" name="Médico de Guardia"/>
+
+        <!-- Casos de Uso -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU08" name="CU08: Consultar Tablero de Espera Priorizado"/>
+        
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU09" name="CU09: Atender Paciente de Guardia">
+          <include xmi:type="uml:Include" xmi:id="INC_CU09_CU10" addition="CU10"/>
+          <include xmi:type="uml:Include" xmi:id="INC_CU09_CU11" addition="CU11"/>
+          <include xmi:type="uml:Include" xmi:id="INC_CU09_CU12" addition="CU12"/>
+        </packagedElement>
+
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU10" name="CU10: Visualizar Historial y Triage del Paciente"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU11" name="CU11: Registrar Evolución y Diagnóstico"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU12" name="CU12: Definir Destino / Cierre de Episodio"/>
+
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU13" name="CU13: Emitir Alta con Pautas de Alarma">
+          <extend xmi:type="uml:Extend" xmi:id="EXT_CU13_CU12" extendedCase="CU12"/>
+        </packagedElement>
+
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU14" name="CU14: Solicitar Pase a Observación / Shockroom">
+          <extend xmi:type="uml:Extend" xmi:id="EXT_CU14_CU12" extendedCase="CU12"/>
+        </packagedElement>
+
+        <packagedElement xmi:type="uml:UseCase" xmi:id="CU15" name="CU15: Solicitar Internación en Piso / Terapia">
+          <extend xmi:type="uml:Extend" xmi:id="EXT_CU15_CU12" extendedCase="CU12"/>
+        </packagedElement>
+
+        <!-- Asociaciones de Actores -->
+        <packagedElement xmi:type="uml:Association" xmi:id="ASSOC_MED_CU08" name="">
+          <memberEnd xmi:idref="ACT_MEDICO"/>
+          <memberEnd xmi:idref="CU08"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="ASSOC_MED_CU09" name="">
+          <memberEnd xmi:idref="ACT_MEDICO"/>
+          <memberEnd xmi:idref="CU09"/>
+        </packagedElement>
+      </packagedElement>
+
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>  

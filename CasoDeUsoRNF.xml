@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+  <uml:Model xmi:type="uml:Model" xmi:id="EA_MODEL_RNF" name="EA_Model_RNF">
+    <packagedElement xmi:type="uml:Package" xmi:id="EAPK_RNF" name="Requerimientos No Funcionales">
+      
+      <packagedElement xmi:type="uml:Class" xmi:id="EAID_RNF01" name="RNF01: Disponibilidad y Autonomía Operativa">
+        <ownedComment xmi:type="uml:Comment" xmi:id="COMM_RNF01" body="El sistema debe operar de forma autónoma en red local sin depender de conexión a internet externa."/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="EAID_RNF02" name="RNF02: Rendimiento y Tiempo de Respuesta">
+        <ownedComment xmi:type="uml:Comment" xmi:id="COMM_RNF02" body="El reordenamiento dinámico de la lista de espera de guardia no debe demorar más de 2 segundos tras clasificar un paciente."/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="EAID_RNF03" name="RNF03: Usabilidad en Clasificación Manchester">
+        <ownedComment xmi:type="uml:Comment" xmi:id="COMM_RNF03" body="La interfaz debe reflejar visualmente la escala de 5 colores con alto contraste para agilizar decisiones de enfermería."/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="EAID_RNF04" name="RNF04: Seguridad y Control de Acceso">
+        <ownedComment xmi:type="uml:Comment" xmi:id="COMM_RNF04" body="Acceso a historias clínicas restringido estrictamente según el perfil de usuario (Médico, Enfermero, Admisión)."/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="EAID_RNF05" name="RNF05: Trazabilidad e Integridad de Tiempos">
+        <ownedComment xmi:type="uml:Comment" xmi:id="COMM_RNF05" body="Todas las marcas temporales de cambio de estado se capturan automáticamente con precisión de segundos para auditoría."/>
+      </packagedElement>
+
+    </packagedElement>
+  </uml:Model>
+
+  <!-- EXTENSIÓN GRÁFICA NATIVA DE ENTERPRISE ARCHITECT -->
+  <xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+    <diagrams>
+      <diagram xmi:id="EAID_DIAG_RNF">
+        <model package="EAPK_RNF" parent="EAPK_RNF" type="Extended" name="Diagrama de Requerimientos No Funcionales"/>
+        <properties type="Requirements" name="Diagrama de Requerimientos No Funcionales"/>
+        <project author="Sagrado Corazón" version="1.0" created="2026-08-18" modified="2026-08-18"/>
+        <elements>
+          <element subject="EAID_RNF01" seqno="1" style="DUID=RNF1;"/>
+          <element subject="EAID_RNF02" seqno="2" style="DUID=RNF2;"/>
+          <element subject="EAID_RNF03" seqno="3" style="DUID=RNF3;"/>
+          <element subject="EAID_RNF04" seqno="4" style="DUID=RNF4;"/>
+          <element subject="EAID_RNF05" seqno="5" style="DUID=RNF5;"/>
+        </elements>
+      </diagram>
+    </diagrams>
+  </xmi:Extension>
+</xmi:XMI>
